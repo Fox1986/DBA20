@@ -8,7 +8,7 @@ $sql="insert into c_nutzer(n_name, n_email, n_psswd)
 values('$uname', '$email', '$pass')";
 $result=$conn->query($sql);
 
-header("Location:index.php")
+header("Location:index.php");
 
 
 
