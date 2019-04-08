@@ -21,7 +21,7 @@
 
 			<form>
 				<form action="signup.php", method="post"></form>
-				<h2>Wenn Sie keinen Account haben Registrieren sich sie bitte hier</h2>
+				<h2>Wenn Sie keinen Account haben, Registrieren sich sie bitte hier:</h2>
 				<label>Nutzername:</label>
 				<input type="text" name="uname", placeholder="Username"><br>
 				<br>
@@ -29,7 +29,7 @@
 				<input type="text" name="email", placeholder="Email"><br>
 				<br>
 				<label>Passwort:</label>
-				<input type="text" name="Password", placeholder="Password"><br>
+				<input type="text" name="password", placeholder="Password"><br>
 				<br>
 				<button style="background-color: #6495ed; color: white" type="submit">
 				<b>Registrieren</b>
