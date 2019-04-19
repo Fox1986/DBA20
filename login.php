@@ -1,11 +1,14 @@
 <?php
+	$test = "1";
 	include 'datenbank.php';
+	$test = "2";
 	session_start();
+	$test = "3";
 	if($_SERVER["REQUEST_METHOD"] == "POST") {
 		$myusername = $_POST['nutzerkennung'];
 		$mypassword = $_POST['kennwort']; 
-		      
-		$sql = "SELECT id FROM c_nutzer WHERE n_name = '$myusername' and n_psswd = '$mypassword'";
+		$test = "4";
+		$sql = "SELECT id FROM c_nutzer WHERE n_name = '$myusername' AND n_psswd = '$mypassword'";
 		$result = mysqli_query($conn,$sql);
 		$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 		$active = $row['active'];
