@@ -1,9 +1,9 @@
 <?php
-	session_start();
 	include 'datenbank.php';
-
-	$myusername = mysqli_real_escape_string($conn,$_POST['nutzerkennung']);
-	$mypassword = mysqli_real_escape_string($conn,$_POST['kennwort']); 
+	session_start();
+	
+	$myusername = $_POST['nutzerkennung'];
+	$mypassword = $_POST['kennwort']; 
 	      
 	$sql = "SELECT id FROM c_nutzer WHERE n_name = '$myusername' and n_psswd = '$mypassword'";
 	$result = mysqli_query($conn,$sql);
