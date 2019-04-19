@@ -6,7 +6,7 @@ $myusername = mysqli_real_escape_string($conn,$_POST['nutzerkennung']);
 $mypassword = mysqli_real_escape_string($conn,$_POST['kennwort']); 
       
 $sql = "SELECT id FROM c_nutzer WHERE n_name = '$myusername' and n_psswd = '$mypassword'";
-$result = mysqli_query($db,$sql);
+$result = mysqli_query($conn,$sql);
 $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 $active = $row['active'];
     
