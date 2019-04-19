@@ -1,6 +1,6 @@
 <?php
 
-	define('DB_SERVER', 'localhost:3036');
+	define('DB_SERVER', 'localhost');
 	define('DB_USERNAME', 'taeger');
 	define('DB_PASSWORD', 'foxdie');
     define('DB_DATABASE', 'chat');
