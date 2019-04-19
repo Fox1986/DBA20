@@ -23,7 +23,7 @@
 		         
 		    header("location:home.php");
 		}else {
-		    $error = "Your Login Name or Password is invalid";
+		    die("Your Login Name or Password is invalid");
 		}
 	}
 ?>
