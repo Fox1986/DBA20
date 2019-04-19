@@ -18,6 +18,7 @@
 		      // If result matched $myusername and $mypassword, table row must be 1 row
 		echo "6";		
 		if($row=$result->fetch_assoc()) {
+			echo "7";
 		    session_register("myusername");
 		    $_SESSION['login_user'] = $myusername;
 		         
