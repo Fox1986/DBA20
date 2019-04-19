@@ -37,7 +37,7 @@
                	</form>
                	<form action = "registrieren.php" method = "post">
                		<h2>Wenn Sie keinen Account haben, Registrieren sich sie bitte hier:</h2>
-                  	<label>Nutzername  :</label><input type = "text" name = "username" class = "box"/><br /><br />
+                  	<label>Nutzername  :</label><input type = "text" name = "uname" class = "box"/><br /><br />
                   	<label>E-Mail  :</label><input type = "text" name = "email" class = "box"/><br /><br />
                   	<label>Passwort  :</label><input type = "password" name = "password" class = "box" /><br/><br />
                   	<input type = "submit" value = " Submit "/><br />
