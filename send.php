@@ -1,14 +1,14 @@
 <?php
 
-session_start();
-include 'datenbank.php';
-$nachricht=$_POST['nachricht'];
-$name=$_SESSION['name'];
+session_start();																/* Session starten */	
+include 'datenbank.php';														/* Datenbankverbindung einbinden */
+$nachricht=$_POST['Nachricht'];													/* Nachricht wird aus home.php ausgelesen */
+$sender=$_SESSION['login_user'];												/* Absender wird aus Session-Name generiert */
 
-$sql="INSERT INTO verlauf (v_nachricht, v_name) VALUES ('$nachricht', '$name')";
-$result=$conn->query($sql);
+$sql="INSERT INTO Chat (Nachricht, Sender) VALUES ('$nachricht', '$sender')";	/* Nachricht in die Tabelle Chat schreiben */
+$result=$conn->query($sql);														/* SQL-Befehl ausführen */
 
 
-header("Location:home.php");
+header("Location:home.php");													/* Zurück zu home.php. Aktualisiert gleichzeitig die Anzeige */
 
 ?>

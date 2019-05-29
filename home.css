@@ -1,36 +1,83 @@
-#main{
-	height: 443px;
-	background-color: white;
-	margin-top: 70px;
-
-}
-.output{
-	background-color: white;
-	box-shadow: 0px 1px 1px #000;
-	height: 250px;
-	margin-bottom: 20px;
-	overflow: scroll;
-
+#main 									/* Chatbereich */
+{
+	height: 600px;						/* Bereichshöhe */
+	background-color: white;			/* Hintergrundfarbe */
+	margin-top: 70px;					/* Abstand vom oberen Rand */
+	float: left;						/* Anordnung auf der Seite */
+	width: 65%;							/* Breite */
 }
 
-ul{
-	list-style: none;
+
+#chatpartner							/* Bereich für Informationen des aktuellen Chatpartners */
+{
+	height: 600px;						/* Bereichshöhe */
+	background-color: white;			/* Hintergrundfarbe */
+	margin-top: 70px;					/* Abstand vom oberen Rand */
+	margin-left: 10px;					/* Abstand zum nächsten linken Abschnitt */
+	float: left;						/* Anordnung auf der Seite */
+	width: 15%;							/* Breite */
+}
+
+
+#freunde								/* Bereich für die Übersicht aller Verfügbaren Kontakte */
+{
+	height: 600px;						/* Bereichshöhe */
+	background-color: white;			/* Hintergrundfarbe */
+	margin-top: 70px;					/* Abstand vom oberen Rand */
+	margin-left: 10px;					/* Abstand zum nächsten linken Abschnitt */
+	float: left;						/* Anordnung auf der Seite */
+	width: 15%;							/* Breite */
+}
+
+
+.output									/* Ausgabebereiche */
+{								
+	background-color: white;			/* Hintergrundfarbe */
+	box-shadow: 0px 1px 1px #2E2E2E;	/* Schatten */
+	height: 100%;						/* Ausdehnung nach oben */
+	margin-bottom: 20px;				/* Abstand vom nächsten unteren Abschnitt */
+	overflow: scroll;					/* Scroll-Bereich einfügen, wenn Daten im Abschnitt zu viel werden */
+}
+
+.outputFreunde							/* Ausgabebereiche */
+{								
+	background-color: white;			/* Hintergrundfarbe */
+	box-shadow: 0px 1px 1px #2E2E2E;	/* Schatten */
+	height: 100%;						/* Ausdehnung nach oben */
+	margin-bottom: 20px;				/* Abstand vom nächsten unteren Abschnitt */
+}
+
+h1										/* Einstellungen für H1 Überschriften */
+{
+	background-color: #8A0886;			/* Hintergrundfarbe */
+	color: white;						/* Schriftfarbeneinstellungen */
+	text-align: center;					/* Schrift mittig ausrichten */
+}
+
+input[type=submit]						/* Buttoneinstellungen */
+{						
+	width: 150px;						/* Breite */
+	box-sizing: border-box;				/* Aussehen */
+	border: 4px solid #2E2E2E;			/* Randfarbe und Größe */
+	border-radius: 4px;					/* Eckenabrundung */
+	background-color: #8A0886;			/* Hintergrundfarbe */
+	color: white;						/* Schriftfarbe */
+}
+
+textarea								/* Bereich für die Eingabe von Chatnachrichten  */
+{								
+	background-color: #dcdcdc;			/* Hintergrundfarbe */
+	width: 100%;						/* Breite des Bereichs */
+}
+
+body									/* Bodyeinstellungen */
+{									
+	background-color: #28a745;			/* Hintergrundfarbe */
 
 }
 
-input[type=submit]{
-	width: 100px;
-	box-sizing: border-box;
-	border: 4px solid #6495ed;
-	border-radius: 4px;
-
-}
-
-textarea{
-	background-color: #dcdcdc;
-	width: 350px;
-}
-body{
-	background-color: #28a745;
-
+select									/* Einstellungen für die Freundesliste */
+{
+	width: 100%;						/* Breite */
+	height: 100%;						/* Höhe */
 }
