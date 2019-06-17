@@ -7,7 +7,7 @@
 	{
 		$nachricht=$_POST['nachricht'];													/* Nachricht wird aus home.php ausgelesen */
 		$sender=$_SESSION['login_user'];												/* Absender wird aus Session-Name generiert */
-		$tabelle=$_SESSION['currentChat'];
+		$tabelle=$_SESSION['Chat'];
 
 		$sql="INSERT INTO $tabelle (Sender, Nachricht) VALUES ('$sender', '$nachricht')";	/* Nachricht in die Tabelle Chat schreiben */
 		$kommando=$db->prepare($sql);
@@ -17,5 +17,5 @@
 		
 	}
 
-	header("Location:chat.php"); 													/* Zurück zu home.php. Aktualisiert gleichzeitig die Anzeige */
+	header("Location:chatAdmin.php"); 													/* Zurück zu home.php. Aktualisiert gleichzeitig die Anzeige */
 ?>

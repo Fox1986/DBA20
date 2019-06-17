@@ -1,0 +1,76 @@
+#main 									/* Chatbereich */
+{
+	height: 630px;						/* Bereichshöhe */
+	background-color: white;			/* Hintergrundfarbe */
+	margin-top: 70px;					/* Abstand vom oberen Rand */
+	float: left;						/* Anordnung auf der Seite */
+	width: 70%;							/* Breite */
+	text-align: center;
+}
+
+#hauptinfo								/* Bereich für die Übersicht der Registraturinfos */
+{
+	height: 500px;						/* Bereichshöhe */
+	background-color: white;			/* Hintergrundfarbe */
+	margin-left: 1%;					/* Abstand zum nächsten linken Abschnitt */
+	margin-right: 1%;
+	float: left;						/* Anordnung auf der Seite */
+	width: 48%;							/* Breite */
+}
+
+#zusatzinfo								/* Bereich für die Übersicht Möglicher Zusatzinfos */
+{
+	height: 500px;						/* Bereichshöhe */
+	background-color: white;			/* Hintergrundfarbe */
+	margin-left: 1%;					/* Abstand zum nächsten linken Abschnitt */
+	margin-right: 1%;
+	float: right;						/* Anordnung auf der Seite */
+	width: 48%;							/* Breite */
+}
+
+#steuerung
+{
+	height: 610px;						/* Bereichshöhe */
+	background-color:  #33ccff;			/* Hintergrundfarbe */
+	margin-top: 70px;					/* Abstand vom oberen Rand */
+	margin-left: 4px;					/* Abstand zum nächsten linken Abschnitt */
+	float: left;						/* Anordnung auf der Seite */
+	width: 10%;							/* Breite */
+	font-size: 18px;
+}
+
+h1										/* Einstellungen für H1 Überschriften */
+{
+	background-color: #8A0886;			/* Hintergrundfarbe */
+	color: white;						/* Schriftfarbeneinstellungen */
+	text-align: center;					/* Schrift mittig ausrichten */
+}
+
+input[type=submit]						/* Buttoneinstellungen */
+{						
+	width: 150px;						/* Breite */
+	box-sizing: border-box;				/* Aussehen */
+	border: 1px solid #2E2E2E;			/* Randfarbe und Größe */
+	border-radius: 10px;					/* Eckenabrundung */
+	background-color: #8A0886;			/* Hintergrundfarbe */
+	color: white;						/* Schriftfarbe */
+	: center;
+}
+
+body									/* Bodyeinstellungen */
+{									
+	background-color: #33ccff;			/* Hintergrundfarbe */
+
+}
+
+select									/* Einstellungen für die Freundesliste */
+{
+	width: 100%;						/* Breite */
+	height: 100%;						/* Höhe */
+
+}
+
+option
+{
+	font-size: 18px;
+}

@@ -8,45 +8,14 @@
 	text-align: center;
 }
 
-#interaktion
+#steuerung
 {
 	height: 610px;						/* Bereichshöhe */
-	background-color:  #28a745;			/* Hintergrundfarbe */
+	background-color:  #33ccff;			/* Hintergrundfarbe */
 	margin-top: 70px;					/* Abstand vom oberen Rand */
 	margin-left: 4px;					/* Abstand zum nächsten linken Abschnitt */
 	float: left;						/* Anordnung auf der Seite */
 	width: 15%;							/* Breite */
-	font-size: 18px;
-}
-#einladen								/* Bereich für die Übersicht aller Verfügbaren Kontakte */
-{
-	height: 300px;						/* Bereichshöhe */
-	background-color:  #28a745;			/* Hintergrundfarbe */
-	
-	margin-left: 10px;					/* Abstand zum nächsten linken Abschnitt */
-							/* Anordnung auf der Seite */
-	width: 100%;							/* Breite */
-	font-size: 18px;
-}
-#beitreten								/* Bereich für die Übersicht aller Chat-Einladungen */
-{
-	height: 150px;						/* Bereichshöhe */
-	background-color:  #28a745;			/* Hintergrundfarbe */
-	margin-top: 70px;					/* Abstand vom oberen Rand */
-	margin-left: 10px;					/* Abstand zum nächsten linken Abschnitt */
-							/* Anordnung auf der Seite */
-	width: 100%;							/* Breite */
-	font-size: 18px;
-}
-
-#steuerung								/* Bereich für allgemeine Steuerungselemente */
-{
-	height: 600px;						/* Bereichshöhe */
-	
-	margin-top: 70px;					/* Abstand vom oberen Rand */
-	margin-left: 20px;					/* Abstand zum nächsten linken Abschnitt */
-	float: left;						/* Anordnung auf der Seite */
-	width: 10%;							/* Breite */
 	font-size: 18px;
 }
 
@@ -68,6 +37,25 @@
 	margin-right: 1%;
 	float: right;						/* Anordnung auf der Seite */
 	width: 48%;							/* Breite */
+}
+
+
+
+.output									/* Ausgabebereiche */
+{								
+	background-color: white;			/* Hintergrundfarbe */
+	box-shadow: 0px 1px 1px #2E2E2E;	/* Schatten */
+	height: 100%;						/* Ausdehnung nach oben */
+	margin-bottom: 20px;				/* Abstand vom nächsten unteren Abschnitt */
+	overflow: scroll;					/* Scroll-Bereich einfügen, wenn Daten im Abschnitt zu viel werden */
+}
+
+.outputFreunde							/* Ausgabebereiche */
+{								
+	background-color: white;			/* Hintergrundfarbe */
+	box-shadow: 0px 1px 1px #2E2E2E;	/* Schatten */
+	height: 100%;						/* Ausdehnung nach oben */
+	margin-bottom: 20px;				/* Abstand vom nächsten unteren Abschnitt */
 }
 
 .avatar 
@@ -98,6 +86,16 @@ input[type=submit]						/* Buttoneinstellungen */
 	: center;
 }
 
+button
+{
+	width: 150px;						/* Breite */
+	box-sizing: border-box;				/* Aussehen */
+	border: 1px solid #2E2E2E;			/* Randfarbe und Größe */
+	border-radius: 10px;					/* Eckenabrundung */
+	background-color: #8A0886;			/* Hintergrundfarbe */
+	color: white;						/* Schriftfarbe */
+	: center;
+}
 textarea								/* Bereich für die Eingabe von Chatnachrichten  */
 {								
 	background-color: #dcdcdc;			/* Hintergrundfarbe */
@@ -106,7 +104,7 @@ textarea								/* Bereich für die Eingabe von Chatnachrichten  */
 
 body									/* Bodyeinstellungen */
 {									
-	background-color: #28a745;			/* Hintergrundfarbe */
+	background-color: #33ccff;			/* Hintergrundfarbe */
 
 }
 
@@ -120,4 +118,9 @@ select									/* Einstellungen für die Freundesliste */
 option
 {
 	font-size: 18px;
+}
+
+th
+{
+	text-align: left;
 }
