@@ -1,3 +1,5 @@
+/* Diese CSS-Datei legt das Aussehen für home.php fest */
+
 #main 									/* Chatbereich */
 {
 	height: 610px;						/* Bereichshöhe */
@@ -22,11 +24,9 @@
 {
 	height: 300px;						/* Bereichshöhe */
 	background-color:  #28a745;			/* Hintergrundfarbe */
-	
 	margin-left: 10px;					/* Abstand zum nächsten linken Abschnitt */
-							/* Anordnung auf der Seite */
-	width: 100%;							/* Breite */
-	font-size: 18px;
+	width: 100%;						/* Breite */
+	font-size: 18px;					/* Schriftgröße */
 }
 #beitreten								/* Bereich für die Übersicht aller Chat-Einladungen */
 {
@@ -34,15 +34,13 @@
 	background-color:  #28a745;			/* Hintergrundfarbe */
 	margin-top: 70px;					/* Abstand vom oberen Rand */
 	margin-left: 10px;					/* Abstand zum nächsten linken Abschnitt */
-							/* Anordnung auf der Seite */
-	width: 100%;							/* Breite */
-	font-size: 18px;
+	width: 100%;						/* Breite */
+	font-size: 18px;					/* Schriftgröße */
 }
 
 #steuerung								/* Bereich für allgemeine Steuerungselemente */
 {
 	height: 600px;						/* Bereichshöhe */
-	
 	margin-top: 70px;					/* Abstand vom oberen Rand */
 	margin-left: 20px;					/* Abstand zum nächsten linken Abschnitt */
 	float: left;						/* Anordnung auf der Seite */
@@ -63,21 +61,18 @@
 #zusatzinfo								/* Bereich für die Übersicht Möglicher Zusatzinfos */
 {
 	height: 500px;						/* Bereichshöhe */
-	background-color: grey;			/* Hintergrundfarbe */
+	background-color: grey;				/* Hintergrundfarbe */
 	margin-left: 1%;					/* Abstand zum nächsten linken Abschnitt */
-	margin-right: 1%;
+	margin-right: 1%;					/* Abstand zum nächsten rechten Abschnitt */
 	float: right;						/* Anordnung auf der Seite */
 	width: 48%;							/* Breite */
 }
 
 .avatar 
 {
-	align-items: center;
-  	position: relative;
-  	left: 10px;
-  	width: 150px;
-  	height: 150px;
-  	border-radius: 50%;
+  	width: 150px;						/* Bildbreite */
+  	height: 150px;						/* Bildhöhe */
+  	border-radius: 50%;					/* Kantenabrundung für ein rundes Profilbild*/
 }
 
 h1										/* Einstellungen für H1 Überschriften */
@@ -92,32 +87,24 @@ input[type=submit]						/* Buttoneinstellungen */
 	width: 150px;						/* Breite */
 	box-sizing: border-box;				/* Aussehen */
 	border: 1px solid #2E2E2E;			/* Randfarbe und Größe */
-	border-radius: 10px;					/* Eckenabrundung */
+	border-radius: 10px;				/* Eckenabrundung */
 	background-color: #8A0886;			/* Hintergrundfarbe */
 	color: white;						/* Schriftfarbe */
 	: center;
 }
 
-textarea								/* Bereich für die Eingabe von Chatnachrichten  */
-{								
-	background-color: #dcdcdc;			/* Hintergrundfarbe */
-	width: 100%;						/* Breite des Bereichs */
-}
-
 body									/* Bodyeinstellungen */
 {									
 	background-color: #28a745;			/* Hintergrundfarbe */
-
 }
 
 select									/* Einstellungen für die Freundesliste */
 {
 	width: 100%;						/* Breite */
 	height: 100%;						/* Höhe */
-
 }
 
 option
 {
-	font-size: 18px;
+	font-size: 18px;					/* Schriftgröße für die Auswahlliste festlegen */
 }

@@ -1,0 +1,43 @@
+/* CSS-Datei für die Styles von index.php */
+
+body {
+  	font-family:Arial, Helvetica, sans-serif;
+  	font-size:14px;
+   color: black;
+   background-color: #28a745;
+}
+
+label {
+  	font-weight:bold;
+  	width:100px;
+  	font-size:14px;
+}
+
+.box {
+   border:#666666 solid 1px;
+}
+
+#main
+{
+   margin: auto;
+   width:300px; 
+   border: solid 1px #333333; 
+}
+
+#name
+{
+   background-color:#33ccff; 
+    
+   padding:3px;
+}
+
+#logreg
+{
+   margin:30px;
+}
+
+input[type=submit]                  
+{
+   background-color: #33ccff;
+   color: black;
+}

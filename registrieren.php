@@ -1,4 +1,6 @@
-<?php 																				/* Dieses Script dient der Registrierung eines neuen Nutzers */
+<!-- Dieses Script dient der Registrierung eines neuen Nutzers -->
+
+<?php 																				
 	include 'datenbank.php';															/* Datenbankverbindung einbinden */
 	if ($_SERVER["REQUEST_METHOD"]=="POST")												/* Prüft ob der Seitenaufruf mit einer POST-Methode stattgefunden hat*/
 	{	
@@ -71,7 +73,7 @@
 		{
 			$sql="INSERT INTO User(Geschlecht, Vorname, Nachname, Nickname, Email, Passwort) VALUES ('$male', '$fname', '$name', '$nick', '$email', '$pass')";
 			$result=$db->query($sql);
-			header("Location:index.php");
+			header("Location:index.php");												/* Nutzer wird zurückgeleitet, um sich mit seinen Daten anzumelden */
 		}
 	}
 ?>

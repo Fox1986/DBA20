@@ -1,3 +1,5 @@
+/* Diese CSS-Datei regelt das Aussehen von persHome.php */
+
 #main 									/* Chatbereich */
 {
 	height: 630px;						/* Bereichshöhe */
@@ -8,7 +10,7 @@
 	text-align: center;
 }
 
-#hauptinfo								/* Bereich für die Übersicht der Registraturinfos */
+#Nutzer									/* Bereich für die Übersicht der Registraturinfos */
 {
 	height: 500px;						/* Bereichshöhe */
 	background-color: white;			/* Hintergrundfarbe */
@@ -18,7 +20,7 @@
 	width: 48%;							/* Breite */
 }
 
-#zusatzinfo								/* Bereich für die Übersicht Möglicher Zusatzinfos */
+#Chats									/* Bereich für die Übersicht Möglicher Zusatzinfos */
 {
 	height: 500px;						/* Bereichshöhe */
 	background-color: white;			/* Hintergrundfarbe */
@@ -70,7 +72,7 @@ select									/* Einstellungen für die Freundesliste */
 
 }
 
-option
+option									/* Einstellungen für die Auswahlobjekte */
 {
-	font-size: 18px;
+	font-size: 18px;					/* Schriftgröße */
 }

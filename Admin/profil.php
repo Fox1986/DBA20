@@ -1,37 +1,34 @@
-<?php
-	session_start();																							/* Session starten / übernehmen */
-	include ('datenbank.php');																					/* Datenbankverbindung hinzufügen */
+<!-- Diese Seite dient dem Admin als Übersicht über das Profil einzelner User -->
 
+<?php
+	session_start();																		/* Session starten / übernehmen */
+	include ('datenbank.php');																/* Datenbankverbindung hinzufügen */
 ?>
 
-
-
-<!DOCTYPE html>
+<!DOCTYPE html>																				<!-- Beginn der HTML Seite -->
 <html>
 	<head>
-		<title>UserProfil</title>
-		<!--<meta http-equiv="refresh" content="10">-->
-		
-    	
-		<link rel="stylesheet" type="text/css" href="profil.css">													<!-- home.css ist für das Styling der Seite zuständig -->
+		<title>UserProfil</title>															<!-- Titel festlegen -->
+		<link rel="stylesheet" type="text/css" href="profil.css">							<!-- profil.css ist für das Styling der Seite zuständig -->
 	</head>
 	<body>
 		
-		<div id="main">																							<!-- Bereich für das eigene Profil -->
+		<div id="main">																		<!-- Bereich für das eigene Profil -->
 			<h1><?php echo $_POST['profil']; ?></h1>
-			<form name = "update" action="pwReset.php" method="post" enctype="multipart/form-data">
-			<div id = "hauptinfo">																				<!-- Bereich für die Profildaten die als Minimum gesetzt sein müssen -->
+			<form name = "update" action="pwReset.php" method="post" enctype="multipart/form-data">		<!-- Passwortreset an pwReset.php weiterleiten -->
+																										<!-- Enctype ist wichtig für das Profilbild -->
+			<div id = "hauptinfo">																		<!-- Bereich für die wichtigen Profildaten -->
 				<?php
-					$person = $_POST['profil'];
-					$sql = "SELECT Nickname, Email, Passwort, Geschlecht FROM User WHERE Nickname = '$person'";						
-					$data = $conn->query($sql);
-					$haupt = $data->fetch_assoc();
+					$person = $_POST['profil'];											/* Nickname in Variable speichern */
+					$sql = "SELECT Nickname, Email, Passwort, Geschlecht FROM User WHERE Nickname = '$person'";	/* SQL-Abfrage nach den Accountdaten */
+					$data = $conn->query($sql);											/* Befehl ausführen */
+					$haupt = $data->fetch_assoc();										/* Daten in einem Array speichern. Index ist Spaltenname der Datenbanktabelle */
 					if ($data->num_rows > 0)
 					{
-						echo "<table>";																			/* Tabelle mit den aktuellen Werten, die vorhanden sein müssen */
+						echo "<table>";													/* Tabelle mit den aktuellen Werten, die vorhanden sein müssen */
 							echo "<tr>";
 								echo "<th>Nickname </th>";
-								echo "<th>" .$haupt['Nickname']. "</th>";
+								echo "<th>" .$haupt['Nickname']. "</th>";			
 							echo "</tr>";
 							
 							echo "<tr>";
@@ -39,8 +36,8 @@
 								echo "<th>" .$haupt['Email']."</th>";
 							echo "</tr>";
 
-							echo "<tr>";
-								echo "<th>Passwort </th>";
+							echo "<tr>";												/* Der Admin hat nur Zugriff auf das Passwort */
+								echo "<th>Passwort </th>";								/* Die User haben den exklusiven Änderungszugriff */						
 								echo "<th> <input type = 'password' name = 'pass1' class = 'box' value =" .$haupt['Passwort']."><br> </th>";
 							echo "</tr>";
 
@@ -52,18 +49,18 @@
 						echo "</table>";
 
 					}
-					$datei = "Avatar/".$_SESSION['login_user'].".png";											/* Variable für das User-Bild */
+					$datei = "../Avatar/".$_SESSION['login_user'].".png";									/* Variable für das User-Bild */
 					
-					if (file_exists($datei))																	/* Test ob User Bild hochgeladen hat */
+					if (file_exists($datei))																/* Test ob User Bild hochgeladen hat */
 					{
-						echo " <img src='$datei' alt='Avatar' class='avatar'> <br>";
-					}else{																						/* Wenn NEIN, dann Default-Bild nutzen */
-						if ($haupt['Geschlecht'] == "m")														/* Geschlechtsabhängiges Default-Profilbild */
+						echo " <img src='$datei' alt='Avatar' class='avatar'> <br>";						/* Bild darstellen */
+					}else{																					/* Wenn kein Bild vorhanden, dann Default-Bild nutzen */
+						if ($haupt['Geschlecht'] == "m")													/* Geschlechtsabhängiges Default-Profilbild */
 						{
-							echo " <img src='Avatar/avatarMD.png' alt='Avatar' class='avatar'> <br>";
+							echo " <img src='../Avatar/avatarMD.png' alt='Avatar' class='avatar'> <br>";	/* männlich */
 						}else
 						{
-							echo " <img src='Avatar/avatarWD.png' alt='Avatar' class='avatar'> <br>";
+							echo " <img src='../Avatar/avatarWD.png' alt='Avatar' class='avatar'> <br>";	/* weiblich */
 						}
 					}
 					
@@ -72,7 +69,7 @@
 			</div>
 			
 			
-			<div id = "zusatzinfo">																				<!-- Bereich für die optinalen Profildaten -->
+			<div id = "zusatzinfo">																		<!-- Bereich für die optionalen Profildaten -->
 				<?php 
 					$person = $_POST['profil'];
 					$sql = "SELECT Vorname, Nachname, Strasse, Hausnummer, Plz, Wohnort, Handynummer, Public FROM User WHERE Nickname = '$person'";						
@@ -80,7 +77,7 @@
 					$zusatz = $data->fetch_assoc();
 					if ($data->num_rows > 0)
 					{
-						echo "<table>";																			/* Tabelle mit den Daten, die optional sind */
+						echo "<table>";																	/* Tabelle mit den Daten, die optional sind */
 							echo "<tr>";
 								echo "<th>Vorname </th>";
 								echo "<th>".$zusatz['Vorname']."</th>";
@@ -117,8 +114,8 @@
 							echo "</tr>";
 							echo "<tr>";
 								echo "<th>Öffentlich </th>";
-								if ($zusatz['Public'] == 0)															/* Auswahl ob anderen Nutzern die optionalen Daten angezeigt werden sollen */
-								{																					/* Vorher wird geprüft ob schonmal eine Wahl getroffen wurde, entsprechend 																							wird die Checkbox angezeigt */
+								if ($zusatz['Public'] == 0)											/* Ausgabe ob User seine Daten öffentlich geschaltet hat */
+								{																	
 									echo "<th> NEIN </th>";
 								}else
 								{
@@ -129,23 +126,25 @@
 					}	
 				
 					echo "</div>";
-					echo "<input type='hidden' name='profil' value='$person'>";
+					echo "<input type='hidden' name='profil' value='$person'>";						
 				?>
-			<input type = "submit" value = "Passwort zurücksetzen" name="submit"><br> 					<!-- Button um die Änderungen durchzuführen -->
+			<input type = "submit" value = "Passwort zurücksetzen" name="submit"><br> 				<!-- Button um ein Passwortreset durchzuführen-->
 			</form>
 		</div>
-		<div id="steuerung">																	<!-- Bereich für die möglichen Chatpartner -->
-				<button onclick="window.close();" >Zurück</button>
-				<br>
-				<form method="post" action="löschen.php">											<!-- Einladen eines Chatpartners mittels Button ermöglichen -->
-					<input type="hidden" name="kill" value="<?php $person ?>">
-					<input type="submit" value="Profil löschen">									<!-- Einladebutton, der auf das Skript einladen.php weiterleitet -->
-				</form>	
+		<div id="steuerung">																		<!-- Bereich für zusätzliche Steuerelemente -->
+			<form action = "persHome.php">														
+				<input type="submit" value="Zurück" >												<!-- Button um zu persHome.php zurückzukehren -->
+			</form>
+			<br>
+			<form method="post" action="nutzerLöschen.php">											
+				<input type="hidden" name="kill" value="<?php echo $person; ?>">
+				<input type="submit" value="Profil löschen">										<!-- Button um das Nutzerprofil zu löschen -->
+			</form>	
 		</div>
 
 		
 		<?php
-			$conn->close();																		/* Datenbankverbindung schließen */
+			$conn->close();																			/* Datenbankverbindung schließen */
 		?>
 		
 	</body>

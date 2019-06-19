@@ -1,3 +1,5 @@
+/* Diese CSS-Datei legt das Aussehen des Chat-Fensters fest */
+
 #body
 {
 	overflow-x: hidden;
@@ -35,7 +37,7 @@
 	font-size: 18px;
 }
 
-#du							/* Bereich für Informationen des aktuellen Chatpartners */
+#du										/* Bereich für Informationen des aktuellen Chatpartners */
 {
 	height: 300px;						/* Bereichshöhe */
 	background-color: white;			/* Hintergrundfarbe */
@@ -43,7 +45,7 @@
 	
 }
 
-#ich							/* Bereich für Informationen des aktuellen Chatpartners */
+#ich									/* Bereich für Informationen des aktuellen Chatpartners */
 {
 	height: 300px;						/* Bereichshöhe */
 	background-color: white;			/* Hintergrundfarbe */
@@ -53,12 +55,12 @@
 
 .avatar 
 {
-	align-items: center;
-  	position: relative;
-  	left: 10px;
-  	width: 120px;
-  	height: 120px;
-  	border-radius: 50%;
+	align-items: center;				/* Bildposition */
+  	position: relative;					/* Bildposition */
+  	left: 10px;							/* Abstand nach Links */
+  	width: 120px;						/* Bildbreite */
+  	height: 120px;						/* Bildhöhe */
+  	border-radius: 50%;					/* Abrundung der Ecken für ein rundes Profilbild */
 }
 
 #freunde								/* Bereich für die Übersicht aller Verfügbaren Kontakte */
@@ -78,7 +80,7 @@
 	box-shadow: 0px 1px 1px #2E2E2E;	/* Schatten */
 	height: 100%;						/* Ausdehnung nach oben */
 	margin-bottom: 20px;				/* Abstand vom nächsten unteren Abschnitt */
-	overflow:auto;					/* Scroll-Bereich einfügen, wenn Daten im Abschnitt zu viel werden */
+	overflow:auto;						/* Scroll-Bereich einfügen, wenn Daten im Abschnitt zu viel werden */
 	
 }
 
@@ -110,10 +112,4 @@ body									/* Bodyeinstellungen */
 {									
 	background-color: #28a745;			/* Hintergrundfarbe */
 
-}
-
-select									/* Einstellungen für die Freundesliste */
-{
-	width: 100%;						/* Breite */
-	height: 100%;						/* Höhe */
 }

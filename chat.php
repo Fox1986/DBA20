@@ -1,41 +1,38 @@
-<?php
-	if (!isset($_SESSION))													/* Session nur einbinden, falls noch nicht passiert */
-	{
-		session_start();
-	}
-	
-	require_once('datenbank.php');	
-											/* Datenbank muss nicht immer wieder neu eingebunden wed*/
-	include ('classChat.php');
+<!-- Diese Seite stellt das Chatfenster dar -->
 
-	$test = new Chat();
+<?php
+	
+	session_start();														/* Session starten */
+	
+	include ('classChat.php');												/* Klasse classChat einbinden */
+
+	$chat = new Chat();														/* Neues Objekt der Klasse Chat erstellen */												
 ?>	
 
-<!DOCTYPE html>
+<!DOCTYPE html>																<!-- Beginn der HTML Seite -->
 <html>
 	<head>
-		<title>ChatRoom</title>
-		<link rel="stylesheet" type="text/css" href="chat.css">
-		<script src="http://code.jquery.com/jquery-latest.js"> </script>
-		
-		<script type="text/javascript">
-			window.onload = startInterval;
+		<title>ChatRoom</title>												<!-- Titel festlegen -->
+		<link rel="stylesheet" type="text/css" href="chat.css">				<!-- Chat.css einbinden, die die Style-Parameter festlegt -->
+		<script src="http://code.jquery.com/jquery-latest.js"> </script>	<!-- JQuery einbinden, da für Auto-Refresh benötigt wird -->
+		<script type="text/javascript">										/* Bereich für Javascript Funktionen */								
+			window.onload = startInterval;									/* Wenn Fenster geladen wurde, starte Funktion startInterval */
 			
-			function startInterval()
+			function startInterval()										/* Funktion um Intervall für den Auto-Refresh des Verlaufs festzulegen */
 			{
-				setInterval("startTime();", 1000);
-				scroll();				
+				setInterval("startTime();", 1000);							/* Sekündlich den Funktion startTime aufrufen */
+				scroll();													/* Bei Seitenaufruf direkt nach unten Scrollen, falls möglich */
 			}
-			function startTime()
+			function startTime()											/* Funktion die den eigentlich Auto-Refresh des Chatverlaufs ermöglicht */
 			{
-			 $('#output').load("verlauf.php"); 
-				scroll();
+			 $('#output').load("verlauf.php"); 								/* JQuery-Funktion um im Bereich output verlauf.php immer neu zu laden */
+				scroll();													/* Bei jedem Aufruf nach unten Scrollen */
 			}
 			
-			function scroll()
+			function scroll()												/* Funktion die das automatische Scrollen an das Chat-Ende ermöglicht */
 			{
-				var objDiv = document.getElementById("output");
-     			objDiv.scrollTop = objDiv.scrollHeight;
+				var objDiv = document.getElementById("output");				/* ID von output-Bereich in Variable legen */
+     			objDiv.scrollTop = objDiv.scrollHeight;						/* Den Bereich in der Variablen immer an das Ende scrollen */
 			}
 		
 		</script>
@@ -44,100 +41,18 @@
 	
 	<body>
 	<?php
-		echo '<div id="main">';
-			echo '<h1>Chat</h1>';
-			echo '<div id="output">';
-			
-			include('verlauf.php');
-			
-			echo '</div>';
-			echo '<form method="post" action="send.php">';
-			
-			echo '<textarea name="nachricht" placeholder="Tippen um Nachricht zu senden..." class="form-control"></textarea><br>';
+		$chat -> ausgabeVerlauf();											/* Funktion von classChat.php, die den Hauptbereich mit Nachrichteneingabe erstellt */
 
-			echo '<input style="font-size: 20px;" type="submit" value="Abschicken" >';
+		echo '<div id = "chatpartner">';									/* Bereich für die Personen-Informationen und Steuerelemente*/
+			$chat -> ausgabeDu();											/* Funktion von classChat.php um Bereich des Chatpartners zu erstellen */
 
-			echo '</form>';
-			echo '<br>';
-				
-		echo '</div>';
+			$chat -> ausgabeIch();											/* Funktion von classChat.php um den Bereich für die eigenen Informationen zu erstellen */
+		
+			$chat -> ausgabeSteuerung();									/* Funktion von classChat.php um zusätzliche Steuerelemente zu erstellen */
 
-
-
-		echo '<div id = "chatpartner">';
-
-			echo '<div id="du">';											
-				$du = $test -> p2;
-				$datei = $test -> p2Avatar;
-				$Vorname = $test -> p2Vorname;
-				$Nachname = $test -> p2Nachname;
-				$Email = $test -> p2Email;
-				$Strasse = $test -> p2Strasse;
-				$Hausnummer = $test -> p2Hausnummer;
-				$Plz = $test -> p2Plz;
-				$Wohnort = $test -> p2Wohnort;
-
-				echo "<h1>$du</h1>";
-				echo "<div class='output'>";
-				echo " <img src='$datei' alt='Avatar' class='avatar'> <br>";
-				echo "<br>";
-				echo "$Vorname<br>";
-				echo "$Nachname<br>";
-				echo "$Email<br>";
-				echo "$Strasse $Hausnummer<br>";
-				echo "$Plz $Wohnort<br>";
-				echo "</div>";
-				echo "<br>";	
-			echo '</div>';
-
-			echo '<div id="ich">';											
-				$ich = $test -> p1;
-				$datei = $test -> p1Avatar;
-				$Vorname = $test -> p1Vorname;
-				$Nachname = $test -> p1Nachname;
-				$Email = $test -> p1Email;
-				$Strasse = $test -> p1Strasse;
-				$Hausnummer = $test -> p1Hausnummer;
-				$Plz = $test -> p1Plz;
-				$Wohnort = $test -> p1Wohnort;
-					
-				echo "<h1>$ich</h1>";
-				echo "<div class='output'>";
-				echo " <img src='$datei' alt='Avatar' class='avatar'> <br>";
-				echo "<br>";
-				echo "$Vorname<br>";
-				echo "$Nachname<br>";
-				echo "$Email<br>";
-				echo "$Strasse $Hausnummer<br>";
-				echo "$Plz $Wohnort<br>";
-				echo "</div>";
-				echo "<br>";	
-			echo "</div>";
 		echo "</div>";
 		
-		echo '<div id="steuerung">';					
-			echo '<form action="ende.php" method="post">';					
-				$chat = $test -> cr;
-				$partner = "SELECT * FROM Rooms";
-					foreach ($db->query($partner) as $zeile)
-					{
-						if ($zeile['Guest'] == $ich && $zeile['Chat'] == $test -> cr)
-						{
-							echo "<input type='hidden' name='beenden' value='Guest'>";
-							echo "<input type='hidden' name='chat' value='$chat'>";
-							echo "<input type='submit' value='Chat verlassen'>";
-						}elseif ($zeile['Host'] == $ich && $zeile['Chat'] == $test -> cr) 
-						{
-							echo "<input type='hidden' name='beenden' value='Host'>";
-							echo "<input type='hidden' name='chat' value='$chat'>";
-							echo "<input type='submit' value='Chat beenden'>";
-						}
-					}
-			echo '</form>';			
-		echo "</div>";
-		
-		$db=null; 
-?>
+	?>
 	</body>
 </html>
 

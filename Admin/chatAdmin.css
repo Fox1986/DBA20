@@ -1,3 +1,5 @@
+/* Diese CSS-Datei regelt das Aussehen das Chatfensters des Admins */
+
 #main 									/* Chatbereich */
 {
 	height: 600px;						/* Bereichshöhe */
@@ -7,10 +9,9 @@
 	width: 65%;							/* Breite */
 }
 
-
 #chatpartner							/* Bereich für Informationen des aktuellen Chatpartners */
 {
-	height: 600px;						/* Bereichshöhe */
+	height: 675px;						/* Bereichshöhe */
 	background-color: white;			/* Hintergrundfarbe */
 	margin-top: 70px;					/* Abstand vom oberen Rand */
 	margin-left: 10px;					/* Abstand zum nächsten linken Abschnitt */
@@ -18,10 +19,21 @@
 	width: 15%;							/* Breite */
 }
 
+#host									/* Bereich für Informationen des aktuellen Chatpartners */
+{
+	height: 300px;						/* Bereichshöhe */
+	background-color: white;			/* Hintergrundfarbe */
+}
+
+#guests									/* Bereich für Informationen des aktuellen Chatpartners */
+{
+	height: 300px;						/* Bereichshöhe */
+	background-color: white;			/* Hintergrundfarbe */	
+}
+
 #steuerung								/* Bereich für allgemeine Steuerungselemente */
 {
 	height: 600px;						/* Bereichshöhe */
-	
 	margin-top: 70px;					/* Abstand vom oberen Rand */
 	margin-left: 10px;					/* Abstand zum nächsten linken Abschnitt */
 	float: left;						/* Anordnung auf der Seite */
@@ -29,42 +41,15 @@
 	font-size: 18px;
 }
 
-#du							/* Bereich für Informationen des aktuellen Chatpartners */
-{
-	height: 300px;						/* Bereichshöhe */
-	background-color: white;			/* Hintergrundfarbe */
-
-	
-}
-
-#ich							/* Bereich für Informationen des aktuellen Chatpartners */
-{
-	height: 300px;						/* Bereichshöhe */
-	background-color: white;			/* Hintergrundfarbe */
-
-	
-}
-
 .avatar 
 {
-	align-items: center;
-  	position: relative;
-  	left: 10px;
-  	width: 120px;
-  	height: 120px;
-  	border-radius: 50%;
+	align-items: center;				/* Bildposition */
+  	position: relative;					/* Bildposition */
+  	left: 10px;							/* Abstand nach Links */
+  	width: 120px;						/* Bildbreite */
+  	height: 120px;						/* Bildhöhe */
+  	border-radius: 50%;					/* Abrundung der Ecken für ein rundes Profilbild */
 }
-
-#freunde								/* Bereich für die Übersicht aller Verfügbaren Kontakte */
-{
-	height: 600px;						/* Bereichshöhe */
-	background-color: white;			/* Hintergrundfarbe */
-	margin-top: 70px;					/* Abstand vom oberen Rand */
-	margin-left: 10px;					/* Abstand zum nächsten linken Abschnitt */
-	float: left;						/* Anordnung auf der Seite */
-	width: 15%;							/* Breite */
-}
-
 
 #output									/* Ausgabebereiche */
 {								
@@ -73,14 +58,6 @@
 	height: 100%;						/* Ausdehnung nach oben */
 	margin-bottom: 20px;				/* Abstand vom nächsten unteren Abschnitt */
 	overflow: scroll;					/* Scroll-Bereich einfügen, wenn Daten im Abschnitt zu viel werden */
-}
-
-.outputFreunde							/* Ausgabebereiche */
-{								
-	background-color: white;			/* Hintergrundfarbe */
-	box-shadow: 0px 1px 1px #2E2E2E;	/* Schatten */
-	height: 100%;						/* Ausdehnung nach oben */
-	margin-bottom: 20px;				/* Abstand vom nächsten unteren Abschnitt */
 }
 
 h1										/* Einstellungen für H1 Überschriften */
@@ -109,11 +86,5 @@ textarea								/* Bereich für die Eingabe von Chatnachrichten  */
 body									/* Bodyeinstellungen */
 {									
 	background-color: #33ccff;			/* Hintergrundfarbe */
-
 }
 
-select									/* Einstellungen für die Freundesliste */
-{
-	width: 100%;						/* Breite */
-	height: 100%;						/* Höhe */
-}

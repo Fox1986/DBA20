@@ -1,3 +1,5 @@
+/* Diese CSS-Datei dient der Darstellung des Profils für den Admin */
+
 #main 									/* Chatbereich */
 {
 	height: 610px;						/* Bereichshöhe */
@@ -60,12 +62,12 @@
 
 .avatar 
 {
-	align-items: center;
-  	position: relative;
-  	left: 10px;
-  	width: 150px;
-  	height: 150px;
-  	border-radius: 50%;
+	align-items: center;				/* Bildposition */
+  	position: relative;					/* Bildposition */
+  	left: 10px;							/* Abstand nach Links */
+  	width: 120px;						/* Bildbreite */
+  	height: 120px;						/* Bildhöhe */
+  	border-radius: 50%;					/* Abrundung der Ecken für ein rundes Profilbild */
 }
 
 h1										/* Einstellungen für H1 Überschriften */
@@ -117,10 +119,10 @@ select									/* Einstellungen für die Freundesliste */
 
 option
 {
-	font-size: 18px;
+	font-size: 18px;					/* Schriftgröße für die Auswahlliste festlegen */
 }
 
 th
 {
-	text-align: left;
+	text-align: left;					/* Textausrichtung in der Tabelle */
 }

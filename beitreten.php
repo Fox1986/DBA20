@@ -1,27 +1,24 @@
+<!-- Mit diesem Skript tritt nimmt man eine Chateinladung an -->
+
 <?php
-	session_start();
-	include 'datenbank.php';
+	session_start();															/* Session einbinden */
+	include 'datenbank.php';													/* Datenbank einbinden */
 	
-	if($_SERVER["REQUEST_METHOD"] == "POST")
+	if($_SERVER["REQUEST_METHOD"] == "POST")									/* Prüfen ob Skript mittels POST-Methode aufgerufen wurde */
 	{	
 		
-		$ich = $_SESSION['login_user'];
-		$_SESSION['guest'] = $_POST['rooms'];
-		$du = $_SESSION['guest'];
-		$host = 0;
-		$tableGuest = "Chat_".$du. "_" .$ich;
+		$ich = $_SESSION['login_user'];											/* Eigenen Nickname in Variable speichern */
+		$_SESSION['guest'] = $_POST['rooms'];									/* Name des Gastes in Session speichern */
+		$du = $_SESSION['guest'];												/* Gastname in Variable speichern */
+	
+		$tableGuest = "Chat_".$du. "_" .$ich;									/* Name des Chats generieren */
 
-		$_SESSION['currentChat'] = $tableGuest;
-		$sql = "SELECT * FROM Rooms WHERE Chat = '$tableGuest'";						
+		$_SESSION['currentChat'] = $tableGuest;									/* Chatname in Session speichern */
 		
-		foreach ($db -> query($sql) as $zeile) 										
-			{
-				$_SESSION[$zeile['ID']] = $zeile['ID'];
-			}
-		$anwesenheit = "UPDATE Rooms SET GuestAnwesend = TRUE WHERE Chat = '$tableGuest'";
-	    $db -> exec($anwesenheit);
+		$anwesenheit = "UPDATE User SET Busy = TRUE WHERE Nickname = '$ich'";	/* Gast wird auf beschäftigt gesetzt, um weitere Chatanfragen zu verhindern */
+	    $db -> exec($anwesenheit);												/* Befehl ausführen */
 	}
 
-	header("Location:chat.php");
+	header("Location:chat.php");												/* Weiterleitung auf chat.php */
 ?>
 

@@ -1,5 +1,5 @@
-<?php 																			/* Dieses Script lagert die Datenbankverbindung aus.*/
+<!-- Dieses Script lagert die Datenbankverbindung aus -->
 
-    $db = new PDO("mysql:dbname=DBA20;host=localhost","root", "akad");
-	
+<?php 
+    $db = new PDO("mysql:dbname=DBA20;host=localhost","root", "akad");	/* Datenbankverbindung zum XAMPP-Server aufbauen */
 ?>

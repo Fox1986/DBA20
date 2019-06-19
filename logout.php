@@ -1,5 +1,6 @@
-<?php 																		/* Dieses Script regelt dir Prozedur beim abmelden */
+<!-- Dieses Script regelt dir Prozedur beim abmelden -->
 
+<?php 																		
 	session_start();
 	session_destroy();															/* Session beenden */
 
@@ -10,7 +11,8 @@
 	$sql="UPDATE User SET Online = FALSE WHERE Nickname = '$user_check'";		/* User als Offline in der Datenbank updaten */
 	$result=$db->query($sql);													/* SQL-Befehl ausführen */
 
+	$sql="UPDATE User SET Busy = FALSE WHERE Nickname = '$user_check'";			/* User als Offline in der Datenbank updaten */
+	$result=$db->query($sql);													/* SQL-Befehl ausführen */
+
 	header("Location:index.php")												/* Rückführung auf die Anmeldeseite */
-
-
 ?>
